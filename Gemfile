@@ -6,7 +6,7 @@ ruby "2.7.1"
 gem "active_storage_validations", "0.8.2"
 gem "bcrypt", "~> 3.1.7"
 gem "bootsnap", ">= 1.4.2", require: false
-gem "bootstrap-sass", "~>3.3.6"
+gem "bootstrap-sass", "~>3.4.1"
 gem "bootstrap-will_paginate", "1.0.0"
 gem "cancancan"
 gem "chartkick"
