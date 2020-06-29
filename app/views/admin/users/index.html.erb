@@ -29,6 +29,10 @@
     <% end %>
   </ol>
   <%= will_paginate @users %>
+  <button id="export">Export</button>
+  <div class="export-status"></div>
 <% else %>
   <%= t "find_nothing_html" %>
 <% end %>
+
+<%= javascript_pack_tag "admin_export_users" %>

@@ -4,6 +4,7 @@ git_source(:github){|repo| "https://github.com/#{repo}.git"}
 ruby "2.7.1"
 
 gem "active_storage_validations", "0.8.2"
+gem "axlsx"
 gem "bcrypt", "~> 3.1.7"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "bootstrap-sass", "~>3.3.6"
@@ -27,12 +28,15 @@ gem "rails", "~> 6.0.3", ">= 6.0.3.1"
 gem "rails-i18n"
 gem "ransack"
 gem "sass-rails", ">= 6"
+gem "sidekiq"
+gem "sidekiq-status"
 gem "toastr-rails"
 gem "turbolinks", "~> 5"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "webpacker", "~> 4.0"
 gem "whenever", require: false
 gem "will_paginate"
+gem "zip-zip"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

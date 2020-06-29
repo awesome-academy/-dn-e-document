@@ -1,3 +1,4 @@
+require "sidekiq/web"
 Rails.application.routes.draw do
   scope "(:locale)", locale: /vi|en/ do
     root "static_pages#home"
@@ -12,7 +13,13 @@ Rails.application.routes.draw do
 
     namespace :admin do
       resources :documents, only: %i(index edit update)
-      resources :users, only: %i(index edit update)
+      resources :users, only: %i(index edit update) do
+        collection do
+          get "/export", to: "users#export"
+          get "/export_status", to: "users#export_status"
+          get "/export_download", to: "users#export_download"
+        end
+      end
       resources :categories, only: %i(index edit update new create)
       resources :histories, only: :index
     end
@@ -32,6 +39,9 @@ Rails.application.routes.draw do
       member do
         get :favorites
       end
+    end
+    authenticate :user, ->(user) { user.admin? } do
+      mount Sidekiq::Web, at: "/sidekiq"
     end
   end
 end
